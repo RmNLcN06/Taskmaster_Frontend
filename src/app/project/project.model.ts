@@ -4,5 +4,5 @@ export interface Project {
     id: number;
     name: string;
     description: string;
-    tasks: Array<Task>; // or Task[]
+    tasks: Array<Task>;  // or Task[]
 }

@@ -1,0 +1,15 @@
+.project-title-container {
+	box-sizing: border-box; /* Ensure padding is included in the width/height */
+	padding: 20px; /* Add some padding for inner spacing */
+	background-color: #fff; /* Set a background color, adjust as needed */
+	border-radius: 8px; /* Round the corners slightly */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+	box-sizing: border-box; /* Ensure padding is included in the width/height */
+	margin-top: 20px;
+    
+	h2 {
+		font-weight: 100;
+		font-size: 18px;
+		line-height: 1;
+	}
+}

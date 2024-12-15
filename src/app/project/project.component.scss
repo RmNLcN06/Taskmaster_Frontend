@@ -1,0 +1,10 @@
+.project-container {
+	max-width: 1200px; /* Set the maximum width for the container */
+	margin: 0 auto; /* Center the container horizontally */
+}
+
+@media (max-width: 768px) {
+	.project-container {
+			padding: 15px; /* Adjust padding for smaller screens */
+	}
+}

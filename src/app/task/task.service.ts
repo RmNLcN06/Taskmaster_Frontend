@@ -44,16 +44,33 @@ export class TaskService {
   constructor() { }
 
   // getTasks
-
+  getTasks() {
+    return this.tasks;
+  }
 
   // getTask
-
+  getTask(existingTask: Task) {
+    const taskIndex = this.tasks.findIndex((task) => task.id === existingTask.id)
+    return taskIndex;
+  }
 
   // addTask
-
+  addTask(task: Task) {
+    this.tasks.push(task);
+    return this.tasks;
+  }
 
   // updateTask
-
+  updateTask(newTask: Task) {
+    const taskIndex = this.tasks.findIndex((task) => task.id === newTask.id);
+    this.tasks[taskIndex] = newTask;
+    return this.tasks;
+  }
 
   // deleteTask
+  deleteTask(id: number) {
+    const taskIndex = this.tasks.findIndex((task) => task.id === id);
+    this.tasks.splice(taskIndex, 1);
+    return this.tasks;
+  }
 }

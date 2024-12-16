@@ -19,7 +19,7 @@
                 <tr>
                     <td>
                         <label class="{{ task.completed ? 'completed-task' : '' }}">
-                            <input type="checkbox" aria-label="Select task" [checked]="task.completed"/> {{ task.name }}
+                            <input type="checkbox" aria-label="Select task" [checked]="task.completed" (click)="handleCheckbox(task.id)"/> {{ task.name }}
                         </label>
                     </td>
                     <td>

@@ -42,5 +42,10 @@ export class TaskListComponent {
       dueDate: new Date("2024-11-18"),
       project: 1
     },
-  ]
+  ];
+
+  handleCheckbox(id: number) {
+    const taskIndex = this.tasks.findIndex((task) => task.id === id);
+    this.tasks[taskIndex].completed = !this.tasks[taskIndex].completed;
+  }
 }

@@ -55,6 +55,24 @@
                     margin-right: 10px;
                 }
             }
+
+            .status-dot {
+                height: 10px;
+                width: 10px;
+                background-color: #333;
+                border-radius: 50%;
+                display: inline-block;
+                margin-right: 5px;
+                vertical-align: middle;
+    
+                &.in-progress {
+                    background-color: #333;
+                }
+    
+                &.completed {
+                    background-color: #ccc;
+                }
+            }
         }
   
         tbody tr {

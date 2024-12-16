@@ -15,45 +15,21 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <label>
-                        <input type="checkbox" aria-label="Select task" /> Design Wireframe
-                    </label>
-                </td>
-                <td>
-                    In Progress
-                </td>
-                <td>
-                    2024-12-15
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>
-                        <input type="checkbox" aria-label="Select task" checked/> Develop Frontend
-                    </label>
-                </td>
-                <td>
-                    Completed
-                </td>
-                <td>
-                    2024-08-11
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>
-                        <input type="checkbox" aria-label="Select task" /> Develop Backend
-                    </label>
-                </td>
-                <td>
-                    In Progress
-                </td>
-                <td>
-                    2024-12-13
-                </td>
-            </tr>
+            @for (task of tasks; track task.id) {
+                <tr>
+                    <td>
+                        <label class="{{ task.completed ? 'completed-task' : '' }}">
+                            <input type="checkbox" aria-label="Select task" [checked]="task.completed"/> {{ task.name }}
+                        </label>
+                    </td>
+                    <td>
+                        <span class="status-dot {{ task.completed ? 'completed' : 'in-progress' }}"></span>{{ task.completed ? 'Completed' : 'In Progress' }}
+                    </td>
+                    <td>
+                        {{ task.dueDate | date:"YYYY-MM-dd"}}
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 

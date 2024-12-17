@@ -35,6 +35,10 @@
     </table>
 
     <div class="button-container">
-		<button>Add New Task</button>
+		<button (click)="showModal = true">Add New Task</button>
 	</div>
+    @if (showModal) {
+        <app-task-form></app-task-form>
+    }
+   
 </div>

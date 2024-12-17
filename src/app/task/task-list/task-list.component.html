@@ -38,7 +38,7 @@
 		<button (click)="showModal = true">Add New Task</button>
 	</div>
     @if (showModal) {
-        <app-task-form></app-task-form>
+        <app-task-form (closePanel)="showModal = false"></app-task-form>
     }
    
 </div>

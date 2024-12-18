@@ -12,7 +12,7 @@ import { TaskService } from '../task.service';
 export class TaskFormComponent {
   @Input() currentTask: Task | null = null;
   @Input() formType: 'UPDATE' | 'CREATE' = 'CREATE';
-  @Output() closePanel = new EventEmitter<'SUBMIT'>();
+  @Output() closePanel = new EventEmitter<'SUBMIT' | 'CANCEL'>();
   taskForm: FormGroup;
 
   private taskService = inject(TaskService);
@@ -55,5 +55,9 @@ export class TaskFormComponent {
       }
       this.closePanel.emit('SUBMIT');
     }
+  }
+
+  handleCancel() {
+    this.closePanel.emit('CANCEL');
   }
 }

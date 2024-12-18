@@ -1,7 +1,7 @@
 <div class="modal">
 	<div class="modal-content">
 		<form [formGroup]="taskForm" (ngSubmit)="handleSubmit()">
-			<p>Add new task</p>
+			<p> {{formType === 'UPDATE' ? "Update task" : "Add new task"}} </p>
 			<div>
 				<label for="task-name">Task name</label>
 				<input id="task-name" formControlName="name"/>

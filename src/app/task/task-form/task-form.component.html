@@ -1,33 +1,30 @@
 <div class="modal">
 	<div class="modal-content">
 		<form [formGroup]="taskForm" (ngSubmit)="handleSubmit()">
-			<p> {{formType === 'UPDATE' ? "Update task" : "Add new task"}} </p>
+			<p>{{formType === "UPDATE" ? "Update task" : "Add new task"}}</p>
 			<div>
 				<label for="task-name">Task name</label>
-				<input id="task-name" formControlName="name"/>
-				@if (taskForm.get("name")?.invalid && taskForm.get("name")?.touched) {
-					<div>
-						Task name is required.
-					</div>
+				<input id="task-name" formControlName="name" />
+				@if(taskForm.get('name')?.invalid && taskForm.get('name')?.touched) {
+				<div>
+					Task name is required.
+				</div>
 				}
+
 			</div>
 			<div>
 				<label for="task-description">Task description</label>
-				<input id="task-description" formControlName="description"/>
-				@if (taskForm.get("description")?.invalid && taskForm.get("description")?.touched) {
-					<div>
-						Task description is required. 
-					</div>
-				}
+				<input id="task-description" formControlName="description" />
 			</div>
 			<div>
 				<label for="task-due-date">Task due date</label>
-				<input id="task-due-date" type="date" formControlName="dueDate"/>
-				@if (taskForm.get("dueDate")?.invalid && taskForm.get("dueDate")?.touched) {
-					<div>
-						Task due date is required.
-					</div>
+				<input id="task-due-date" type="date" formControlName="dueDate" />
+				@if(taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched) {
+				<div>
+					Due date is required
+				</div>
 				}
+
 			</div>
 			<div>
 				<button class="cancel-button" type="button" (click)="handleCancel()">Cancel</button>

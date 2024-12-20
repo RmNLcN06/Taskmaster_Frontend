@@ -1,45 +1,45 @@
 <div class="task-list-container">
-    <div class="heading">
-        <h3>Tasks</h3>
-        <div>
-            <span class="status-dot in-progress"></span>In Progress
-            <span class="status-dot completed"></span>Completed
-        </div>
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <th>Task</th>
-                <th>Status</th>
-                <th>Due Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (task of tasks; track task.id) {
-                <tr>
-                    <td>
-                        <label class="{{ task.completed ? 'completed-task' : '' }}">
-                            <input type="checkbox" aria-label="Select task" [checked]="task.completed" (click)="handleCheckbox(task.id)"/> {{ task.name }}
-                        </label>
-                    </td>
-                    <td>
-                        <span class="status-dot {{ task.completed ? 'completed' : 'in-progress' }}"></span>{{ task.completed ? 'Completed' : 'In Progress' }}
-                    </td>
-                    <td>
-                        {{ task.dueDate | date:"YYYY-MM-dd"}}
-                    </td>
+	<div class="heading">
+		<h3>Tasks</h3>
+		<div>
+			<span class="status-dot in-progress"></span>In Progress
+			<span class="status-dot completed"></span>Completed
+		</div>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Task</th>
+				<th>Status</th>
+				<th>Due date</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for(task of tasks$ | async; track task.id) {
+			<tr>
+				<td>
+					<label class="{{ task.completed ? 'completed-task' : '' }}">
+						<input type="checkbox" aria-label="Select task" [checked]="task.completed"
+							(click)="handleCheckbox(task.id!)" />{{ task.name }}
+					</label>
+				</td>
+				<td>
+					<span class="status-dot {{ task.completed ? 'completed' : 'in-progress' }}"></span>{{ task.completed ?
+					'Completed' : 'In Progress' }}
+				</td>
+				<td>{{task.dueDate | date:"YYYY-MM-dd"}}</td>
                     <td (click)="updateTask(task)"><i class="fa-solid fa-square-pen"></i></td>
                     <td (click)="deleteTask(task.id)"><i class="fa-solid fa-square-xmark"></i></td>
                 </tr>
-            }
-        </tbody>
-    </table>
+			}
+		</tbody>
+	</table>
 
-    <div class="button-container">
-		<button (click)="showModal = true">Add New Task</button>
+	<div class="button-container">
+		<button (click)="addNewTask()">Add New Task</button>
 	</div>
-    @if (showModal) {
-        <app-task-form (closePanel)="showModal = false" [currentTask]="selectedTask" [formType]="formType"></app-task-form>
-    }
-   
+	@if(showModal) {
+	<app-task-form (closePanel)="handleModalClose($event)" [currentTask]="selectedTask"
+		[formType]="formType"></app-task-form>
+	}
 </div>
